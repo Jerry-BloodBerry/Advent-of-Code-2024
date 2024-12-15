@@ -1,0 +1,1 @@
+public record DirectedCoordinates(int x, int y, Direction direction) {}
