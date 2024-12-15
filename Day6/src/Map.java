@@ -1,10 +1,10 @@
 import java.util.HashSet;
 
-class Map
+public class Map
 {
     private final char[][] fields;
     private int visitedSpots = 0;
-    private HashSet<Coordinates> visitedCoordinates = new HashSet<>();
+    private final HashSet<Coordinates> visitedCoordinates = new HashSet<>();
 
     public Map(char[][] fields)
     {
@@ -37,16 +37,6 @@ class Map
         fields[y][x] = '#';
     }
 
-    public void print()
-    {
-        for (int i = 0; i < fields.length; i++) {
-            for (int j = 0; j < fields[i].length; j++) {
-                System.out.print(fields[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
     public boolean hasCoordinates(int x, int y)
     {
         return x >= 0 && y >= 0 && x < fields[0].length && y < fields.length;
@@ -54,19 +44,6 @@ class Map
 
     public void removeObstacle(int x, int y) {
         fields[y][x] = '.';
-    }
-
-    public void printWithMarker(int x, int y) {
-        for (int i = 0; i < fields.length; i++) {
-            for (int j = 0; j < fields[i].length; j++) {
-                if (i == y && j == x) {
-                    System.out.print("M");
-                } else {
-                    System.out.print(fields[i][j]);
-                }
-            }
-            System.out.println();
-        }
     }
 
     public HashSet<Coordinates> getVisitedCoordinates() {
